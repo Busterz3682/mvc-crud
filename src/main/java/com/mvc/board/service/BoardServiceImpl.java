@@ -12,13 +12,17 @@ import com.mvc.board.domain.BoardVO;
 @Service
 public class BoardServiceImpl implements BoardService {
 
- @Inject
- private BoardDAO dao;
- 
- @Override
- public List<BoardVO> list() throws Exception {
+	@Inject
+	private BoardDAO dao;
 
-  return dao.list();
- }
+	@Override
+	public List<BoardVO> list() throws Exception {
+		return dao.list();
+	}
+
+	@Override
+	public void write(BoardVO vo) throws Exception {
+		dao.write(vo);
+	}
 
 }

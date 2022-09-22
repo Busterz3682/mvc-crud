@@ -5,9 +5,14 @@
 <mapper namespace="com.mvc.board.mappers.board">
 <!-- 게시물 목록 -->
 <select id="list" resultType="com.mvc.board.domain.BoardVO">
- select
-  bno, title, content, writer
- from board
+	select
+		bno, title, content, writer
+		from board
 </select>
-
+<!-- 게시물 작성 -->
+<insert id="write" parameterType="com.mvc.board.domain.BoardVO">
+	insert into
+		board(bno, title, content, writer)
+		values(bno_seq.nextval, #{title}, #{content}, #{writer})
+</insert>
 </mapper>
