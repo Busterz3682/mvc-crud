@@ -7,7 +7,8 @@
 <select id="list" resultType="com.mvc.board.domain.BoardVO">
 	select
 		bno, title, content, writer
-		from board
+	from 
+		board
 </select>
 <!-- 게시물 작성 -->
 <insert id="write" parameterType="com.mvc.board.domain.BoardVO">
@@ -15,4 +16,21 @@
 		board(bno, title, content, writer)
 		values(bno_seq.nextval, #{title}, #{content}, #{writer})
 </insert>
+<!-- 게시물 조회 -->
+<select id="view" resultType="com.mvc.board.domain.BoardVO">
+	select
+		bno, title, content, writer
+	from 
+		board
+	where bno = #{bno}	
+</select>
+<!-- 게시물 수정 -->
+<update id="modify" parameterType="com.mvc.board.domain.BoardVO">
+	update board
+	set
+		title = #{title},
+		content = #{content},
+		writer = #{writer}
+	where bno = #{bno}	
+</update>
 </mapper>
