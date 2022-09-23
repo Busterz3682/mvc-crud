@@ -66,5 +66,11 @@ public class BoardController {
 			service.modify(vo);
 			return "redirect:/board/list";
 		}
-	
+		
+	//게시물 삭제
+		@GetMapping("delete")
+		public String delete(int bno) throws Exception {
+			service.delete(bno);
+			return "redirect:/board/list";
+		}
 }
